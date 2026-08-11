@@ -1,0 +1,22 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main(){
+
+    freopen("square.in", "r", stdin);
+    freopen("square.out", "w", stdout);
+
+    int x1, y1, x2, y2; cin >> x1 >> y1 >> x2 >> y2;
+    int x3, y3, x4, y4; cin >> x3 >> y3 >> x4 >> y4;
+
+    int lowest_x = min(x1, x3);
+    int lowest_y = min(y1, y3);
+    int highest_x = max(x2, x4)-lowest_x;
+    int highest_y = max(y2, y4)-lowest_y;
+    int side = max(highest_x, highest_y);
+
+    cout << side*side << endl;
+
+    return 0;
+}
