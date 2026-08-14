@@ -1,0 +1,29 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main(){
+
+    freopen("lostcow.in", "r", stdin);
+	freopen("lostcow.out", "w", stdout);
+
+    int x, y; cin >> x >> y;
+
+    int a = 1, pos = x, i = 1, movement = 0;
+    while(pos != y){
+        
+        while(pos != x+(i*a) && pos != y){
+            pos += 1 * a;
+            movement++;
+        }
+
+        a = a*-1;
+        i *= 2;
+    }
+
+    // 3 -> 4 -> 1 -> 7
+
+    cout << movement << endl;
+
+    return 0;
+}
