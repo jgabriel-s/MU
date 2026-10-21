@@ -1,0 +1,48 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+#define int long long
+
+int calc_media(vector<int> v, int s, int e){
+
+    int sum = 0;
+
+    for (int i = s; i <= e; i++){
+        sum += v[i];
+    }
+
+    if (sum % ((e-s)+1) != 0) return -1;
+
+    return sum / ((e-s)+1);
+
+}
+
+signed main(){
+
+    vector<int> daisies; 
+
+    int n; cin >> n;
+
+    for (int i = 0; i < n; i++){
+        int x; cin >> x; daisies.push_back(x);
+    }
+
+    int ans = n;
+
+    for (int i = 0; i < n-1; i++){
+        for (int j = i+1; j < n; j++){
+            int media = calc_media(daisies, i, j);
+            for (int x = i; x <= j; x++){
+                if (daisies[x] == media){
+                    ans++;
+                    break;
+                }
+            } 
+        }
+    }
+
+    cout << ans << endl;
+
+    return 0;
+}
